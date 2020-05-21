@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-const Item = ({ item, removeItem }) => {
+const ViewItem = ({ item, removeItem }) => {
     return (
         <TouchableOpacity style={styles.item}>
             <View style={styles.itemView}>
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
         color: 'firebrick'
     }
 });
-export default Item;
+export default ViewItem;
