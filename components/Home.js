@@ -1,46 +1,63 @@
-import React from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    StatusBar,
-} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput, FlatList } from 'react-native';
+import Item from './Item';
 
 const Home = () => {
+    const [listItems, setState] = useState([
+        { id: 1, name: 'Milk', quantity: 2 },
+        { id: 2, name: 'Banana', quantity: 4 },
+        { id: 3, name: 'Eggs', quantity: 6 },
+        { id: 4, name: 'Mango', quantity: 5 }
+    ])
+
+    const removeItem = id => {
+        setState(listItems => {
+            return listItems.filter(item => item.id != id);
+        });
+    }
+
     return (
         <>
-            <ScrollView>
-                <View style={styles.body}>
-                    <View style={styles.sectionContainer}>
-                        <Text style={styles.sectionTitle}>My Grocery</Text>
-                        <Text style={styles.sectionDescription}>Welcome to my Grocery app</Text>
-                    </View>
+            <View style={styles.body}>
+                <View style={styles.sectionContainer}>
+                    <Text style={styles.sectionTitle}>My Grocery</Text>
+                    <TextInput style={styles.textInput} placeholder="Name" />
                 </View>
-            </ScrollView>
+                <View style={styles.listView}>
+                    <FlatList data={listItems}
+                        renderItem={({ item }) => <Item item={item} removeItem={removeItem} />} />
+                </View>
+            </View>
         </>
     )
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: 'gray',
+    listView: {
+        margin: 10,
+        marginHorizontal: 20,
     },
     body: {
         backgroundColor: '#ffffff',
     },
     sectionContainer: {
         marginTop: 32,
-        paddingHorizontal: 24,
+        paddingHorizontal: 20,
     },
     sectionTitle: {
         fontSize: 28,
         fontWeight: '400',
         color: '#ffffff',
-        backgroundColor:'blue',
-        padding:10,
-        textTransform:'uppercase'
+        backgroundColor: 'dodgerblue',
+        padding: 10,
+        textTransform: 'uppercase',
+        marginBottom: 5
+    },
+    textInput: {
+        fontSize: 24,
+        borderBottomWidth: 1,
+        borderBottomColor: 'dodgerblue',
+        backgroundColor: 'powderblue'
     },
     sectionDescription: {
         marginTop: 8,
