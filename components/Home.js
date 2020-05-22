@@ -38,16 +38,13 @@ const Home = () => {
 }
 
 const styles = StyleSheet.create({
-    listView: {
-        margin: 10,
-        marginHorizontal: 20,
-    },
+    
     body: {
         backgroundColor: '#ffffff',
     },
     sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 20,
+        marginTop:2,
+        paddingHorizontal: 2,
     },
     sectionTitle: {
         fontSize: 28,
@@ -63,6 +60,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '300',
         color: 'darkgreen',
+    },
+    listView: {
+        margin: 10,
+        marginHorizontal: 10,
     },
 })
 

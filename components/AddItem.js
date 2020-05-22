@@ -3,19 +3,21 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 
 const AddItem = ({ addItem }) => {
 
-    const [item, setItem] = useState({})
-
-    const onChange = val => {
-        setItem({ id: key(), name: val, quantity: 1 });
-    };
-
     const key = () => {
         let dt = new Date();
         return dt.getUTCMilliseconds();
     }
+    const [item, setItem] = useState({ id: key(), name: '', quantity: 1 })
 
+    const onNameChange = val => {
+        setItem({ ...item, id: key(), name: val });
+    };
+    const onQuantityChange = val => {
+        setItem({ ...item, id: key(), quantity: (val != null && val != '' ? val : 1) });
+    };
     return (<View>
-        <TextInput style={styles.textInput} placeholder="Item name" onChangeText={onChange} />
+        <TextInput style={styles.textInput} placeholder="Name" onChangeText={onNameChange} />
+        <TextInput style={styles.textInput} placeholder="Quantity" onChangeText={onQuantityChange} />
         <TouchableOpacity style={styles.buttonBody} onPress={() => addItem(item)}>
             <Text style={styles.button}>Add</Text>
         </TouchableOpacity>
@@ -28,13 +30,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'dodgerblue',
         backgroundColor: 'powderblue',
-        marginHorizontal: 15,
-        padding: 10
+        marginHorizontal: 10,
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 5
     },
     buttonBody: {
         backgroundColor: 'lightseagreen',
         padding: 8,
-        margin: 15,
+        margin: 10,
         borderRadius: 5
     },
     button: {
