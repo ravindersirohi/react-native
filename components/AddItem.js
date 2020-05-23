@@ -19,7 +19,7 @@ const AddItem = ({ addItem }) => {
         <TextInput style={styles.textInput} placeholder="Name" onChangeText={onNameChange} />
         <TextInput style={styles.textInput} placeholder="Quantity" onChangeText={onQuantityChange} />
         <TouchableOpacity style={styles.buttonBody} onPress={() => addItem(item)}>
-            <Text style={styles.button}>Add</Text>
+            <Text style={styles.button}>Add Item</Text>
         </TouchableOpacity>
     </View>);
 }
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     button: {
         fontSize: 20,
         backgroundColor: 'lightseagreen',
-        color: 'powderblue',
+        color: '#FFFFFF',
         textAlign: 'center',
         textTransform: 'uppercase',
 

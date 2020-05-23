@@ -5,8 +5,7 @@ import AddItem from './AddItem';
 
 const Home = () => {
     const [listItems, setState] = useState([
-        { id: 1, name: 'Milk', quantity: 2 },
-        { id: 2, name: 'Banana', quantity: 4 }
+        { id: 1, name: 'Banana', quantity: 4 }
     ])
 
     const removeItem = id => {
@@ -24,8 +23,8 @@ const Home = () => {
     return (
         <>
             <View style={styles.body}>
-                <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>My Grocery</Text>
+                <View style={styles.container}>
+                    <Text style={styles.title}>My Grocery</Text>
                 </View>
                 <View style={styles.listView}>
                     <AddItem addItem={addItem} />
@@ -38,15 +37,16 @@ const Home = () => {
 }
 
 const styles = StyleSheet.create({
-    
+
     body: {
+        fontSize: 20,
         backgroundColor: '#ffffff',
     },
-    sectionContainer: {
-        marginTop:2,
+    container: {
+        marginTop: 2,
         paddingHorizontal: 2,
     },
-    sectionTitle: {
+    title: {
         fontSize: 28,
         fontWeight: '400',
         color: '#ffffff',
@@ -54,12 +54,6 @@ const styles = StyleSheet.create({
         padding: 10,
         textTransform: 'uppercase',
         marginBottom: 5
-    },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: '300',
-        color: 'darkgreen',
     },
     listView: {
         margin: 10,

@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
 const ViewItem = ({ item, removeItem }) => {
     return (
         <TouchableOpacity style={styles.item}>
             <View style={styles.itemView}>
                 <Text style={styles.itemText}>{item.name} ({item.quantity})</Text>
-                <Icon name="remove" style={styles.icon} onPress={() => removeItem(item.id)} />
+                <Text style={styles.icon} onPress={() => removeItem(item.id)}>Remove</Text>
             </View>
         </TouchableOpacity>);
 }
@@ -27,8 +26,9 @@ const styles = StyleSheet.create({
         color: 'dodgerblue'
     },
     icon: {
-        fontSize: 24,
-        color: 'firebrick'
+        fontSize: 18,
+        color: 'firebrick',
+        textTransform: 'uppercase',
     }
 });
 export default ViewItem;
