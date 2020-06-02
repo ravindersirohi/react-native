@@ -5,7 +5,7 @@ import AddItem from './AddItem';
 
 const Home = () => {
     const [listItems, setState] = useState([
-        { id: 1, name: 'Banana', quantity: 4 }
+        { id: 1, name: 'Baby Milk', quantity: 2 }
     ])
 
     const removeItem = id => {

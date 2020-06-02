@@ -4,8 +4,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 const AddItem = ({ addItem }) => {
 
     const key = () => {
-        let dt = new Date();
-        return dt.getUTCMilliseconds();
+        return new Date().getUTCMilliseconds();
     }
     const [item, setItem] = useState({ id: key(), name: '', quantity: 1 })
 
@@ -15,10 +14,14 @@ const AddItem = ({ addItem }) => {
     const onQuantityChange = val => {
         setItem({ ...item, id: key(), quantity: (val != null && val != '' ? val : 1) });
     };
+    const add = () => {
+        addItem(item);
+        setItem({ id: key(), name: '', quantity: 1 });
+    }
     return (<View>
-        <TextInput style={styles.textInput} placeholder="Name" onChangeText={onNameChange} />
-        <TextInput style={styles.textInput} placeholder="Quantity" onChangeText={onQuantityChange} />
-        <TouchableOpacity style={styles.buttonBody} onPress={() => addItem(item)}>
+        <TextInput style={styles.textInput} placeholder="Name" onChangeText={onNameChange} value={item.name} />
+        <TextInput style={styles.textInput} placeholder="Quantity (eg: 1 Kg)" onChangeText={onQuantityChange} value={item.quantity} />
+        <TouchableOpacity style={styles.buttonBody} onPress={() => add()}>
             <Text style={styles.button}>Add Item</Text>
         </TouchableOpacity>
     </View>);
