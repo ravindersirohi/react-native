@@ -20,7 +20,7 @@ const AddItem = ({ addItem }) => {
     }
     return (<View>
         <TextInput style={styles.textInput} placeholder="Name" onChangeText={onNameChange} value={item.name} />
-        <TextInput style={styles.textInput} placeholder="Quantity (eg: 1 Kg)" onChangeText={onQuantityChange} value={item.quantity} />
+        <TextInput style={styles.textInput} placeholder="Quantity (2 Kg)" onChangeText={onQuantityChange} value={item.quantity} />
         <TouchableOpacity style={styles.buttonBody} onPress={() => add()}>
             <Text style={styles.button}>Add Item</Text>
         </TouchableOpacity>
