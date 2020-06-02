@@ -15,9 +15,12 @@ const Home = () => {
     }
 
     const addItem = item => {
-        setState(listItems => {
-            return [item, ...listItems]
-        });
+        const index = listItems.findIndex(prev => prev.name.toLocaleLowerCase() === item.name.toLocaleLowerCase());
+        if (index < 0) {
+            setState(listItems => {
+                return [item, ...listItems]
+            });
+        }
     }
 
     return (
